@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const bodyParser = require('body-Parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 
@@ -14,13 +14,17 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // Personas
-app.use("/personas", PersonasRouter)
+app.use("/personas", PersonasRouter);
 
 // Usuarios
-app.use("/usuarios", UsuariosRouter)
+app.use("/usuarios", UsuariosRouter);
+
+app.get("/", (req, res) => {
+    res.json("Conectado");
+})
 
 // Transacciones
-app.use("/transacciones", TransaccionesRouter)
+app.use("/transacciones", TransaccionesRouter);
 
 // Productos
 app.use("/productos", ProductosRouter)
