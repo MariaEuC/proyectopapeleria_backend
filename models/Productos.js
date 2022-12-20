@@ -1,7 +1,7 @@
 const mongoose = require('../db/ConnectionDB');
 
 const Productos = mongoose.Schema({
-    nombrep: {
+    nombreprod: {
         type: String
     },
     codigo: {
