@@ -28,7 +28,6 @@ const Productos = mongoose.Schema({
         type: String
     }
 
-
 }, {
     collection: "Productos",
     versionKey: false

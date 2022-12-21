@@ -4,14 +4,14 @@ const Productos = require('../models/Productos');
 const ProductosRouter = express.Router();
 
 
-//Listar Productos
+//Listar P
 ProductosRouter.get("/", (req, res) => {
     Productos.find()
-        .then(datos => res.json({ Productos: datos }))
+        .then(datos => res.json({ productos: datos }))
         .catch(error => res.json({ mensaje: error }));
 });
 
-//Guardar Nueva Producto
+//Guardar Nuevo
 ProductosRouter.post("/", (req, res) => {
     const producto = new Productos(req.body);
     producto.save()
@@ -19,15 +19,15 @@ ProductosRouter.post("/", (req, res) => {
         .catch(error => res.json({ mensaje: error }));
 });
 
-//Actualizar Producto
+//Actualizar P
 ProductosRouter.patch("/", (req, res) => {
-    const Producto = new Productos(req.body);
-    Productos.updateOne({ _id: Producto._id }, Producto)
+    const producto = new Productos(req.body);
+    Productos.updateOne({ _id: producto._id }, producto)
         .then(datos => res.json(datos))
         .catch(error => res.json({ mensaje: error }));
 });
 
-//Eliminar Producto
+//Eliminar P
 ProductosRouter.delete("/:id", (req, res) => {
     Productos.deleteOne({ _id: req.params.id })
         .then(datos => res.json(datos))

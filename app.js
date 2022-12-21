@@ -6,8 +6,8 @@ const app = express();
 
 const PersonasRouter = require('./routers/PersonasRouter');
 const UsuariosRouter = require('./routers/UsuariosRouter');
-const TransaccionesRouter = require('./routers/TransaccionesRouter');
 const ProductosRouter = require('./routers/ProductosRouter');
+const TransaccionesRouter = require('./routers/TransaccionesRouter');
 
 
 app.use(cors());
@@ -23,12 +23,14 @@ app.get("/", (req, res) => {
     res.json("Conectado");
 })
 
+// P
+app.use("/productos", ProductosRouter);
+
 // Transacciones
 app.use("/transacciones", TransaccionesRouter);
 
-// Productos
-app.use("/productos", ProductosRouter)
 
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+// const PORT = process.env.PORT || 5000;
+// app.listen(PORT);
+app.listen(5000);
